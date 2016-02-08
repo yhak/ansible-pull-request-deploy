@@ -18,7 +18,7 @@
       image_id=ubuntu-14-04-x64
       ssh_key_ids=1676458
       wait_timeout=500
-      api_key=8365ec1522cbbe06f0c992f27951b62b0b36a26e95041bec4ae7aff6c54aadee
+      
     register: created_droplets
     with_items: droplets
 
