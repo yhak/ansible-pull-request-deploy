@@ -1,0 +1,7 @@
+- name: Download composer
+  become: false
+  get_url: url=https://getcomposer.org/composer.phar dest="{{ application_root }}"
+
+- name: Install composer without running scripts
+  become: false
+  command: php composer.phar install --prefer-dist --optimize-autoloader --no-scripts --no-interaction chdir="{{ application_root }}"

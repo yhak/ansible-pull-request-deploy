@@ -1,0 +1,45 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    droplets:
+      - { name: ansible-pull-request-deploy, group: "www" }
+  tasks:
+  - name: Create new DigitalOcean droplet
+    digital_ocean: >
+      state=present
+      command=droplet
+      name={{ item.name }}
+      unique_name=yes
+      private_networking=yes
+      size_id=512mb
+      region_id=ams2
+      image_id=ubuntu-14-04-x64
+      ssh_key_ids=1676458
+      wait_timeout=500
+      api_key=8365ec1522cbbe06f0c992f27951b62b0b36a26e95041bec4ae7aff6c54aadee
+    register: created_droplets
+    with_items: droplets
+
+  - name: Add new host to our vars
+    add_host:
+      name: "{{ item.1.droplet.networks.v4.1.ip_address }}"
+      groups: "do,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
+    when: item.1.droplet is defined
+    with_indexed_items: created_droplets.results
+
+- hosts: www
+  remote_user: root
+  sudo: false
+  gather_facts: true
+  vars:
+    project_root: /var/www/ansible-pull-request-deploy
+    servername: ansible-pull-request-deploy
+  vars_files:
+    - vars/cloud.yml
+  roles:
+    - server
+    - nginx
+    - php
+    - composer

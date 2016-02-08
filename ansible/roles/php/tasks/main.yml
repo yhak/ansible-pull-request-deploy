@@ -1,0 +1,23 @@
+- name: Install php5
+  apt: pkg=php5 state=latest
+
+- name: ensure timezone is set in apache2 php.ini
+  notify: restart apache
+  lineinfile: dest=/etc/php5/apache2/php.ini
+              regexp='date.timezone ='
+              line='date.timezone = {{ timezone }}'
+
+- name: configure php sessions to use http only
+  notify: restart apache
+  lineinfile: dest=/etc/php5/apache2/php.ini
+              regexp='session.cookie_httponly ='
+              line='session.cookie_httponly = 1'
+
+- name: configure php sessions to use https only
+  notify: restart apache
+  lineinfile: dest=/etc/php5/apache2/php.ini
+              regexp='session.cookie_secure ='
+              line='session.cookie_secure = 1'
+
+- include: xdebug.yml
+  when: (deploy_env == "dev")
