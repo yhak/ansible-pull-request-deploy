@@ -11,7 +11,7 @@ matrix:
 before_script:
   - export PATH=$HOME/.local/bin:$PATH
   - pip install ansible --user `whoami`
-  - sudo pip install dopy==0.3.3
+  - sudo easy_install dopy
 #  - ansible-playbook -i ansible/inventory/travis-hosts ansible/travis.yml
   - phpenv config-add .travis.php.ini
 
