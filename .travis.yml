@@ -17,6 +17,9 @@ before_script:
 after_success:
   - ./ansible/deploy-pr.sh $TRAVIS_COMMIT
 
+script:
+  - export HELLOTEST=$HOME
+
 branches:
   only:
     - master
