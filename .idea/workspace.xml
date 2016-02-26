@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cad5fff5-8fb3-4a87-9c1b-c5566ab2ce5e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ansible/ansible.cfg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ansible/inventories/test-hosts" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ansible/roles/apache/files/secure/apache.crt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ansible/roles/apache/files/secure/apache.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ansible/roles/apache/handlers/main.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ansible/roles/apache/tasks/main.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ansible/roles/apache/templates/vhost22.conf.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ansible/roles/apache/templates/vhost24.conf.tpl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ansible/roles/composer/tasks/main.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ansible/roles/php/tasks/xdebug.yml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.travis.php.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/deploy-pr.sh" afterPath="$PROJECT_DIR$/ansible/deploy-pr.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/playbook.yml" afterPath="$PROJECT_DIR$/ansible/playbook.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/roles/php/tasks/main.yml" afterPath="$PROJECT_DIR$/ansible/roles/php/tasks/main.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/vars/cloud.yml" afterPath="$PROJECT_DIR$/ansible/vars/cloud.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
     </list>
     <ignored path="ansible-pull-request-deploy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,20 +56,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.25325885">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy-pr.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="deploy-pr.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ansible/deploy-pr.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22160149">
+            <state vertical-scroll-proportion="0.0">
               <caret line="7" column="94" selection-start-line="7" selection-start-column="94" selection-end-line="7" selection-end-column="94" />
               <folding />
             </state>
@@ -116,6 +102,7 @@
         <option value="$PROJECT_DIR$/ansible/deploy-pr.sh" />
         <option value="$PROJECT_DIR$/ansible/playbook.yml" />
         <option value="$PROJECT_DIR$/ansible/ansible.cfg" />
+        <option value="$PROJECT_DIR$/.travis.php.ini" />
         <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
@@ -283,7 +270,7 @@
     <frame x="1" y="23" width="1920" height="1124" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -425,14 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ansible/playbook.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ansible/ansible.cfg">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -441,18 +420,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
+    <entry file="file://$PROJECT_DIR$/ansible/playbook.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ansible/deploy-pr.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22160149">
+        <state vertical-scroll-proportion="0.0">
           <caret line="7" column="94" selection-start-line="7" selection-start-column="94" selection-end-line="7" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.php.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031657357">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25325885">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding />
         </state>
       </provider>
