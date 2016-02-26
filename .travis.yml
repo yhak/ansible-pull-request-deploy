@@ -10,8 +10,8 @@ matrix:
 
 before_script:
   - export PATH=$HOME/.local/bin:$PATH
-  - pip install dopy --user `whoami`
   - pip install ansible --user `whoami`
+  - pip install dopy --user `whoami`
 #  - ansible-playbook -i ansible/inventory/travis-hosts ansible/travis.yml
   - phpenv config-add .travis.php.ini
 
