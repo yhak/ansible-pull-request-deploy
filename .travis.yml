@@ -15,7 +15,7 @@ before_script:
   - phpenv config-add .travis.php.ini
 
 after_success:
-  - ./ansible/deploy-pr.sh $TRAVIS_COMMIT
+  - ./ansible/deploy-pr.sh
 
 script:
   - export HELLOTEST=$HOME
