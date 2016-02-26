@@ -1,0 +1,46 @@
+- name: Deploy archive - Copy archive to server
+  copy: src="{{ local_archive_path }}" dest="{{ project_root }}/{{ archive_name }}"
+
+- name: Deploy archive - Set dir facts
+  set_fact:
+    archive_path: "{{ project_root }}/{{ archive_name }}"
+
+- name: Deploy archive - Create new root dir at server
+  file: path="{{ application_root }}" state=directory
+
+- name: Deploy archive - Extract archive to new root dir at server
+  shell: tar -xzf {{ archive_path }} --directory "{{ application_root }}"
+
+- name: Deploy archive - Set ownership to deploy user
+  sudo: true
+  file: path={{ application_root }} state=directory owner={{ httpd_user }} group={{ cli_user }} recurse=yes
+  when: deploy_env == "test"
+
+- name: Fix file rights on application files
+  command: find {{ application_root }} -type f -exec chmod 644 {} \;
+
+- name: Fix directory on application folder
+  command: find {{ application_root }} -type d -exec chmod 775 {} \;
+
+- name: Fix file rights on executable application files
+  command: find {{ application_root }}/bin ! \( -type d \) -exec chmod +x {} \;
+
+- name: Deploy archive - Remove archive from server
+  file: path="{{ archive_path }}" state=absent
+
+- name: Create symlink to new deploy
+  file:
+    path: "{{ project_root }}/current"
+    src: "{{ application_root }}"
+    force: yes
+    state: link
+
+- name: Cleanup old releases
+  sudo: true
+  shell: ls -dt {{ project_root }}/releases/*/ | tail -n +6 | xargs rm -rf
+
+- name: Restart Nginx
+  raw: sudo service nginx restart
+
+- name: Restart PHP7-FPM
+  raw: sudo service php7.0-fpm restart

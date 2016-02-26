@@ -1,0 +1,28 @@
+language: php
+
+sudo: false
+
+php:
+  - 5.6
+  - 7.0
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: 7.0
+
+before_script:
+  - export PATH=$HOME/.local/bin:$PATH
+  - pip install ansible --user `whoami`
+#  - ansible-playbook -i ansible/inventory/travis-hosts ansible/travis.yml
+  - phpenv config-add .travis.php.ini
+
+after_success:
+  - ./ansible/deploy-pr.sh $TRAVIS_COMMIT
+
+script:
+  - vendor/bin/phing -Dproject.environment=test
+
+branches:
+  only:
+    - master

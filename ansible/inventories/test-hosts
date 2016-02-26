@@ -1,0 +1,9 @@
+[phansible-web]
+
+[phanisble-web:vars]
+deploy_env = production
+cli_user = root
+httpd_user = www-data
+httpd_group = www-data
+hostname = ansible-pull-request-deploy
+servername = ansible-pull-request-deploy.nl

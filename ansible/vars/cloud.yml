@@ -1,0 +1,19 @@
+---
+server:
+    install: '1'
+    packages: [npm, nodejs, fail2ban]
+    timezone: UTC
+    locale: en_US.UTF-8
+nginx:
+    install: '1'
+    docroot: /var/www/ansible-pull-request-deploy/src
+    servername: ansible-pull-request-deploy.nl
+redis:
+    install: '1'
+    port: '6379'
+php:
+    install: '1'
+    ppa: php-7.0
+    packages: [php7.0-cli, php7.0-intl, php7.0-common, php7.0-curl, php7.0-mysql, php7.0-gd, php7.0-mcrypt]
+composer:
+    install: '1'
