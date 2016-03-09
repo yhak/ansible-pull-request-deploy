@@ -23,8 +23,8 @@
 
   - name: Add new host to our vars
     add_host:
-      name: "{{ item.1.droplet.networks.v4.1.ip_address }}"
-      groups: "do,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
+      name: "{{ item.0.droplet.networks.v4.1.ip_address }}"
+      groups: "do,{{ droplets[item.0].group }},{{ item.0.droplet.name }}"
     when: item.1.droplet is defined
     with_indexed_items: created_droplets.results
 
