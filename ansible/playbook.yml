@@ -12,7 +12,7 @@
       command=droplet
       name={{ item.name }}
       unique_name=yes
-      private_networking=yes
+      private_networking=no
       size_id=512mb
       region_id=ams2
       image_id=ubuntu-14-04-x64
@@ -27,10 +27,14 @@
 
   - name: Add new host to our vars
     add_host:
-      name: "{{ item.0.droplet.networks.v4.1.ip_address }}"
+      name: "{{ item.0.droplet.ip_address }}"
       groups: "do,{{ droplets[item.0].group }},{{ item.0.droplet.name }}"
     when: item.0.droplet is defined
-    with_indexed_items: created_droplets.results
+    with_indexed_items: "{{created_droplets.results}}"
+
+  - name: debug more stuff
+    debug: msg={{ item }}
+    with_indexed_items: "{{created_droplets.results}}"
 
   - name: debug groups
     debug: var=groups
