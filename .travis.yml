@@ -10,6 +10,7 @@ matrix:
 
 before_script:
   - export PATH=$HOME/.local/bin:$PATH
+  - export ANSIBLE_HOST_KEY_CHECKING=False
   - pip install ansible --user `whoami`
   - pip install 'dopy>=0.3.5,<=0.3.5' --user `whoami`
 #  - ansible-playbook -i ansible/inventory/travis-hosts ansible/travis.yml
