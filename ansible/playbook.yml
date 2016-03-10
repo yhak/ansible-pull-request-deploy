@@ -33,7 +33,7 @@
     with_indexed_items: created_droplets.results
 
   - name: Debug hosts
-    debug: msg="System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
+    debug: msg="System {{ inventory_hostname }}"
 
 - hosts: www
   remote_user: root
