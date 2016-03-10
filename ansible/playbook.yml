@@ -21,6 +21,10 @@
     register: created_droplets
     with_items: droplets
 
+  - name: Debug Created Droplets
+    debug: var=created_droplets
+    when: created_droplets.results is defined
+
   - name: Add new host to our vars
     add_host:
       name: "{{ item.1.droplet.networks.v4.1.ip_address }}"
