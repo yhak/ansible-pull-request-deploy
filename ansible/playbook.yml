@@ -29,13 +29,16 @@
     debug: msg={{item.droplet.ip_address}}
 #    add_host:
 #      name: "{{ item.droplet.ip_address }}"
-#      groups: "do,{{ droplets[item.0].group }},{{ item.0.droplet.name }}"
+#      groups: "do,{{ droplets[item.0].group }},{{ item.droplet.name }}"
     when: item.droplet is defined
-    with_indexed_items: "{{created_droplets.results}}"
+    with_items: "{{created_droplets.results}}"
+
+  - name: even more stuff
+    debug: msg={{droplets}}
 
   - name: debug more stuff
     debug: msg={{ item }}
-    with_indexed_items: "{{created_droplets.results}}"
+    with_items: "{{created_droplets.results}}"
 
   - name: debug groups
     debug: var=groups
