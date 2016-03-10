@@ -1,0 +1,9 @@
+- include: create-archive.yml
+  when: deploy_env != "development"
+  tags:
+     - checkout
+
+- include: deploy-archive.yml
+  when: deploy_env != "development"
+  tags:
+     - checkout

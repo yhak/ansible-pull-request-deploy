@@ -1,2 +1,0 @@
-after_success:
-  - ./ansible/deploy-pr.sh $COMMIT_HASH

@@ -1,0 +1,27 @@
+language: php
+
+sudo: false
+
+php:
+  - 7.0
+
+matrix:
+  fast_finish: true
+
+before_script:
+  - export PATH=$HOME/.local/bin:$PATH
+  - export ANSIBLE_HOST_KEY_CHECKING=False
+  - pip install ansible --user `whoami`
+  - pip install 'dopy>=0.3.5,<=0.3.5' --user `whoami`
+#  - ansible-playbook -i ansible/inventory/travis-hosts ansible/travis.yml
+  - phpenv config-add .travis.php.ini
+
+after_success:
+  - ./ansible/deploy-pr.sh
+
+script:
+  - export HELLOTEST=$HOME
+
+branches:
+  only:
+    - master

@@ -12,22 +12,39 @@
       command=droplet
       name={{ item.name }}
       unique_name=yes
-      private_networking=yes
+      private_networking=no
       size_id=512mb
       region_id=ams2
       image_id=ubuntu-14-04-x64
       ssh_key_ids=1676458
       wait_timeout=500
-      
     register: created_droplets
     with_items: droplets
 
+  - name: Debug Created Droplets
+    debug: var=created_droplets
+    when: created_droplets.results is defined
+
   - name: Add new host to our vars
+#    debug: msg={{item.droplet.ip_address}}
     add_host:
-      name: "{{ item.1.droplet.networks.v4.1.ip_address }}"
-      groups: "do,{{ droplets[item.0].group }},{{ item.1.droplet.name }}"
-    when: item.1.droplet is defined
-    with_indexed_items: created_droplets.results
+      name: "{{ item.droplet.ip_address }}"
+      groups: "do,www,{{ item.droplet.name }}"
+    when: item.droplet is defined
+    with_items: "{{created_droplets.results}}"
+
+#  - name: even more stuff
+#    debug: msg={{droplets}}
+
+#  - name: debug more stuff
+#    debug: msg={{ item }}
+#    with_items: "{{created_droplets.results}}"
+
+  - name: debug groups
+    debug: var=groups
+
+#  - name: Debug hosts
+#    debug: msg="System {{ inventory_hostname }}"
 
 - hosts: www
   remote_user: root
@@ -39,7 +56,7 @@
   vars_files:
     - vars/cloud.yml
   roles:
-    - server
+    - app
     - nginx
     - php
-    - composer
+    - server
