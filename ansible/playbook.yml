@@ -26,7 +26,7 @@
     when: created_droplets.results is defined
 
   - name: Add new host to our vars
-    debug: msg="ip: {{item.droplet.ip_address}}"
+    debug: msg={{item.droplet.ip_address}}
 #    add_host:
 #      name: "{{ item.droplet.ip_address }}"
 #      groups: "do,{{ droplets[item.0].group }},{{ item.0.droplet.name }}"
