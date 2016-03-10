@@ -32,8 +32,11 @@
     when: item.0.droplet is defined
     with_indexed_items: created_droplets.results
 
-  - name: Debug hosts
-    debug: msg="System {{ inventory_hostname }}"
+  - name: debug groups
+    debug: var=groups
+
+#  - name: Debug hosts
+#    debug: msg="System {{ inventory_hostname }}"
 
 - hosts: www
   remote_user: root
